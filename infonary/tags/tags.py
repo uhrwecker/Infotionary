@@ -40,6 +40,11 @@ class Note(Tag):
         self.id = 'Note'
         super().__init__(self.id, **kwargs)
 
+class FunFact(Tag):
+    def __init__(self, **kwargs):
+        self.id = 'FunFact'
+        super().__init__(self.id, **kwargs)
+
 
 
 

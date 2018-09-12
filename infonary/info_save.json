@@ -1,0 +1,18 @@
+{
+    "Entries": [
+        {
+            "description": {
+                "content": "Avokados sind giftig f\u00fcr V\u00f6gel.",
+                "title": "FunFact #1"
+            },
+            "tags": {
+                "FunFact": {
+                    "ID": "FunFact"
+                },
+                "Info": {
+                    "ID": "Info"
+                }
+            }
+        }
+    ]
+}

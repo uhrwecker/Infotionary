@@ -1,8 +1,8 @@
-import tags as TT
+import tags.tags as TT
 
 class TagHandler():
     def __init__(self, tags):
-        self.tags = self.__initialize_tags(tags)
+        self.initialize_tags(tags)
 
     def add_tag(self, tag):
         if tag in [tag_obj.get(call='ID') for tag_obj in self.tags]:
@@ -19,13 +19,21 @@ class TagHandler():
         return self.tags
 
     def get(self):
-        return self.tags
+        tagdict = {}
+        for tag in self.tags:
+            tagdict[tag.get(call='ID')] = tag.get() 
+        return tagdict
 
-    def __initialize_tags(self, tags, **kwargs):
+    def initialize_tags(self, tags, **kwargs):
         # Check if tags are doubled:
         tags = list(set(tags))
-
-        taglist = [TT.__dict__[tag_id]() for tag_id in tags]
+        taglist = []
+        for tag in tags:
+            try:
+                taglist.append(TT.__dict__[tag]())
+            except KeyError:
+                raise ReferenceError('Tag {} is not in TagList'.format(tag))
+        self.tags = taglist
         return taglist
 
 
